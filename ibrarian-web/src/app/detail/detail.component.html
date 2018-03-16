@@ -1,0 +1,23 @@
+<div class="panel panel-default" *ngIf="nodeToShow" [hidden]="close">
+  <a class="boxclose" id="boxclose" (click)="closeWidnow()"></a>
+  <h4>{{nodeToShow.sourceNode.id}}</h4>
+  <div>
+    <a [href]="nodeToShow.sourceNode.link">
+      <h4>{{nodeToShow.sourceNode.title}}</h4>
+    </a>
+  </div>
+  <div class="content">
+    <div>
+      <img [src]="nodeToShow.sourceNode.image" class="img-rounded">
+    </div>
+    <div>{{nodeToShow.sourceNode.description}}</div>
+  </div>
+  <div class="refer" *ngIf="this.nodeToShow">
+    <h4>References ({{this.nodeToShow.targetNode.size}})</h4>
+    <ul class="references list-group">
+      <li *ngFor="let targetNode of this.nodeToShow.targetNode" class="list-group-item" (click)="onSelect(targetNode)">
+        <em>{{targetNode.id}}.</em> {{targetNode.title}}
+      </li>
+    </ul>
+  </div>
+</div>
