@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class IbrarianService {
   constructor(private http: Http) {
-    console.log('ForceDataService Initialized...');
+    console.log('IbrarianService Initialized...');
   }
   getForceData(): Observable<any> {
     return this.http.get('../assets/mock-data.json').map(res => res.json());
